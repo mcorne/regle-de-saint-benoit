@@ -1,0 +1,141 @@
+<!--
+    Règle de saint Benoît
+
+    Javascript main functions widget
+
+    @author    Michel Corne
+    @copyright 2013 Michel Corne
+    @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+-->
+
+<script type="text/javascript">
+
+var
+sbStyle = 'page-skin-1';
+
+function displayCorrections(init)
+{
+    var selected;
+
+    selected = processSelect('sb-display-corrections', init);
+    updateCssAttr(sbStyle, 'span.sb-correction', 'border-bottom-style', selected? 'dotted' : 'none');
+}
+
+function displayDifferences(init)
+{
+    var selected;
+
+    selected = processSelect('sb-display-differences', init);
+    updateCssAttr(sbStyle, 'span.sb-difference', 'border-bottom-style', selected? 'dotted' : 'none');
+}
+
+function displayFrenchTitles()
+{
+    setcookie('sb-display-french-titles', 'yes');
+    hideElt('sb-display-french'); 
+    displayElt('sb-hide-french'); 
+    displayElt('sb-french-table');
+}
+
+function displayLatinText(init)
+{
+    var selected;
+
+    selected = processSelect('sb-display-latin-text', init);
+    updateCssAttr(sbStyle, 'span.sb-montserrat', 'display', selected? 'none' : 'inline');
+    updateCssAttr(sbStyle, 'span.sb-saint-gall', 'display', selected? 'inline' : 'none');
+}
+
+function displayLatinTitles()
+{
+    setcookie('sb-display-latin-titles', 'yes');
+    hideElt('sb-display-latin'); 
+    displayElt('sb-hide-latin'); 
+    displayElt('sb-latin-table');
+}
+
+function displayVerses(init)
+{
+    var selected;
+
+    selected = processSelect('sb-display-verses', init);
+    updateCssAttr(sbStyle, 'span.sb-line', 'display', selected? 'block' : 'inline');
+}
+
+function hideFrenchTitles(){
+    setcookie('sb-display-french-titles', '');
+    hideElt('sb-hide-french'); 
+    displayElt('sb-display-french'); 
+    hideElt('sb-french-table');
+}
+
+function hideLatinTitles(){
+    setcookie('sb-display-latin-titles', '');
+    hideElt('sb-hide-latin'); 
+    displayElt('sb-display-latin'); 
+    hideElt('sb-latin-table');
+}
+
+function hideLinksToManuscript(init)
+{
+    var selected;
+
+    selected = processSelect('sb-hide-link-to-manuscript', init);
+    updateCssAttr(sbStyle, 'span.sb-manuscript, span.sb-manuscript a', 'display', selected? 'none' : 'inline'); // for FF, Chrome
+    updateCssAttr(sbStyle, 'span.sb-manuscript', 'display', selected? 'none' : 'inline'); // for IE
+}
+
+function hideNotes(init)
+{
+    var selected;
+
+    selected = processSelect('sb-hide-notes', init);
+    updateCssAttr(sbStyle, 'span.sb-note-ref', 'display', selected? 'none' : 'inline');
+    updateCssAttr(sbStyle, 'table.sb-content tr.sb-notes td', 'display', selected? 'none' : 'inline');
+}
+
+function hideNumbers(init)
+{
+    var selected;
+
+    selected = processSelect('sb-hide-numbers', init);
+    updateCssAttr(sbStyle, 'span.sb-number', 'display', selected? 'none' : 'inline');
+}
+
+function hideRefToBible(init)
+{
+    var selected;
+
+    selected = processSelect('sb-hide-ref-to-bible', init);
+    updateCssAttr(sbStyle, 'span.sb-bible-ref, span.sb-bible-ref a', 'display', selected? 'none' : 'inline'); // for FF, Chrome
+    updateCssAttr(sbStyle, 'span.sb-bible-ref', 'display', selected? 'none' : 'inline'); // for IE
+}
+
+function setFrenchTitles(){
+    if (getcookie('sb-display-french-titles')) {
+        displayFrenchTitles();
+    } else {
+        hideFrenchTitles();
+    }
+}
+
+function setLatinTitles(){
+    if (getcookie('sb-display-latin-titles')) {
+        displayLatinTitles();
+    } else {
+        hideLatinTitles();
+    }
+}
+
+displayLatinText(true);
+hideNumbers(true);
+displayVerses(true);
+hideRefToBible(true);
+hideLinksToManuscript(true);
+hideNotes(true);
+displayCorrections(true);
+displayDifferences(true);
+setFrenchTitles();
+setLatinTitles();
+
+</script>

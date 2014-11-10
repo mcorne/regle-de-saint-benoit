@@ -1,0 +1,187 @@
+<!--
+  Règle de saint Benoît
+
+  Options widget
+
+  @copyright 2014 Michel Corne
+  @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+-->
+
+<table>
+
+  <tr> 
+    <td>Numéros de versets</td>
+    <td> 
+      <select id="sb-hide-numbers" onchange="hideNumbers()"> 
+        <option value="" />Afficher
+        <option value="yes" />Cacher 
+      </select> 
+    </td> 
+    <td> 
+      <a href="javascript:displayORhideElt('sb-numbers')">?</a>
+    </td>
+  </tr>
+  
+  <tr> 
+    <td colspan="3">
+      <span id="sb-numbers" style="display:none" class="sb-help">
+        Cette option affiche ou cache les numéros de versets.
+      </span>
+    </td>
+  </tr>
+    
+  <tr> 
+    <td>Versets d'un paragraphe</td>
+    <td> 
+      <select id="sb-display-verses" onchange="displayVerses()"> 
+        <option value="" />À la suite
+        <option value="yes" />À la ligne
+      </select> 
+    </td> 
+    <td> 
+      <a href="javascript:displayORhideElt('sb-verses')">?</a>
+    </td>
+  </tr>
+  
+  <tr> 
+    <td colspan="3">
+      <span id="sb-verses" style="display:none" class="sb-help">
+        Cette option affiche les versets d'un paragraphe à la suite ou à la ligne.
+      </span>
+    </td>
+  </tr>
+
+  <tr> 
+    <td>Références à la Bible</td>
+    <td> 
+      <select id="sb-hide-ref-to-bible" onchange="hideRefToBible()"> 
+        <option value="" />Afficher
+        <option value="yes" />Cacher
+      </select> 
+    </td> 
+    <td> 
+      <a href="javascript:displayORhideElt('sb-ref-to-bible')">?</a>
+    </td>
+  </tr>
+  
+  <tr> 
+    <td colspan="3">
+      <span id="sb-ref-to-bible" style="display:none" class="sb-help">
+        Cette option affiche ou cache les références à la Bible.
+      </span>
+    </td>
+  </tr>
+
+  <tr> 
+    <td>Notes du texte</td>
+    <td> 
+      <select id="sb-hide-notes" onchange="hideNotes()"> 
+        <option value="" />Afficher
+        <option value="yes" />Cacher
+      </select> 
+    </td> 
+    <td> 
+      <a href="javascript:displayORhideElt('sb-notes')">?</a>
+    </td>
+  </tr>
+  
+  <tr> 
+    <td colspan="3">
+      <span id="sb-notes" style="display:none" class="sb-help">
+        Cette option affiche ou cache les notes du texte en français ou en latin.
+      </span>
+    </td>
+  </tr>
+
+  <tr> 
+    <td>Texte latin</td>
+    <td> 
+      <select id="sb-display-latin-text" onchange="displayLatinText()"> 
+        <option value="" />Montserrat
+        <option value="yes" />Saint-Gall 
+      </select> 
+    </td> 
+    <td> 
+      <a href="javascript:displayORhideElt('sb-latin-texts')">?</a>
+    </td>
+  </tr>
+  
+  <tr> 
+    <td colspan="3">
+      <span id="sb-latin-texts" style="display:none" class="sb-help">
+        Cette option affiche le texte latin transcrit du manuscrit de Montserrat ou de Saint-Gall.
+      </span>
+    </td>
+  </tr>
+    
+  <tr> 
+    <td>Liens sur les manuscrits</td>
+    <td> 
+      <select id="sb-hide-link-to-manuscript" onchange="hideLinksToManuscript()"> 
+        <option value="" />Afficher
+        <option value="yes" />Cacher
+      </select> 
+    </td> 
+    <td> 
+      <a href="javascript:displayORhideElt('sb-link-to-manuscript')">?</a>
+    </td>
+  </tr>
+  
+  <tr> 
+    <td colspan="3">
+      <span id="sb-link-to-manuscript" style="display:none" class="sb-help">
+        Cette option affiche ou cache les liens sur les manuscrits en latin.
+        Exemples&nbsp;: 
+        [f.4r] = page 4 recto du manuscrit de Montserrat, 
+        [sg.1] = page 1 du manuscrit de Saint-Gall.
+      </span>
+    </td>
+  </tr>
+
+  <tr> 
+    <td>Differences entre les manuscrits</td>
+    <td> 
+      <select id="sb-display-differences" onchange="displayDifferences()"> 
+        <option value="" />Cacher
+        <option value="yes" />Souligner
+      </select> 
+    </td> 
+    <td> 
+      <a href="javascript:displayORhideElt('sb-differences')">?</a>
+    </td>
+  </tr>
+  
+  <tr> 
+    <td colspan="3">
+      <span id="sb-differences" style="display:none" class="sb-help">
+        Cette option souligne en pointillé (ou ne souligne pas) les mots différents ou manquants 
+        entre les manuscrits de Montserrat de Saint-Gall.
+        Le passage de la souris au-dessus d'un mot souligné fait apparaitre le mot de l'autre manuscrit.
+      </span>
+    </td>
+  </tr>
+
+  <tr> 
+    <td>Corrections du ms. de Montserrat</td>
+    <td> 
+      <select id="sb-display-corrections" onchange="displayCorrections()"> 
+        <option value="" />Cacher
+        <option value="yes" />Souligner
+      </select> 
+    </td> 
+    <td> 
+      <a href="javascript:displayORhideElt('sb-corrections')">?</a>
+    </td>
+  </tr>
+  
+  <tr> 
+    <td colspan="3">
+      <span id="sb-corrections" style="display:none" class="sb-help">
+        Cette option souligne avec des tirets (ou ne souligne pas) les mots du manuscrit de Montserrat 
+        qui ont été corrigés lors de la transcription.
+        Le passage de la souris au-dessus d'un mot corrigé fait apparaitre le mot original.
+      </span>
+    </td>
+  </tr>
+
+</table>
