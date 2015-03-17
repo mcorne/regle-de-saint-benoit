@@ -1,0 +1,1 @@
+Tool to edit and publish the Rule of Saint Benedict in French and Latin
