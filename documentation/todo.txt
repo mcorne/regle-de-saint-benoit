@@ -1,0 +1,6 @@
+Things to do
+------------
+
+- fix the underlining of differences and corrections in FF
+- fix the misalignment of chapter next and previous in IE
+- fix the selection by number to show the prologue as well

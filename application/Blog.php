@@ -2,7 +2,7 @@
 /**
  * Règle de saint Benoît
  *
- * Process rule entries
+ * Processing of blog messages
  *
  * @author    Michel Corne <mcorne@yahoo.com>
  * @copyright 2014 Michel Corne
@@ -16,10 +16,40 @@ require_once 'Zend/Gdata/Query.php';
 
 class Blog
 {
+    /**
+     * Maximum number of messages retrieves
+     *
+     * @var int
+     */
+    const MAX_MESSAGES = 100;
+
+    /**
+     * The blog ID
+     *
+     * @var string
+     */
+
+    /**
+     * The client object
+     *
+     * @var Zend_Gdata
+     */
     protected $_client;
-    protected $_blogId;
+
+    /**
+     * The list of blog messages
+     *
+     * @var array
+     */
     protected $_feeds = array();
 
+    /**
+     * The constructor
+     *
+     * @param string $user     The Blogger account user name
+     * @param string $password The Blogger account password
+     * @param string $title    The blog title
+     */
     public function __construct($user = null, $password = null, $title = null)
     {
         if ($user and $password) {
@@ -31,6 +61,13 @@ class Blog
         }
     }
 
+    /**
+     * Creates a blog message
+     *
+     * @param string $title   The message title
+     * @param string $content The message content
+     * @return string         The message ID
+     */
     public function createPost($title, $content)
     {
         $uri = 'http://www.blogger.com/feeds/' . $this->_blogId . '/posts/default';
@@ -46,6 +83,12 @@ class Blog
         return $postId;
     }
 
+    /**
+     * Returns the blog ID
+     *
+     * @param string $title The blog title
+     * @throws Exception
+     */
     public function getBlogId($title)
     {
         $uri = 'http://www.blogger.com/feeds/default/blogs';
@@ -55,6 +98,12 @@ class Blog
         }
     }
 
+    /**
+     * Sets a client instance aka logs into Blogger
+     *
+     * @param string $user     The Blogger account user name
+     * @param string $password The Blogger account password
+     */
     public function getClient($user, $password)
     {
         $client = Zend_Gdata_ClientLogin::getHttpClient(
@@ -65,11 +114,18 @@ class Blog
         $this->_client = new Zend_Gdata($client);
     }
 
+    /**
+     * Returs a message ID by its title or URL
+     *
+     * @param string $uri        The URI of the blog feed
+     * @param string $title      The title or URL of the message
+     * @return string            The message ID
+     */
     public function getFeedEntry($uri, $title)
     {
         if (!isset($this->_feeds[$uri])) {
             $query = new Zend_Gdata_Query($uri);
-            $query->setMaxResults(100);
+            $query->setMaxResults(self::MAX_MESSAGES);
             $this->_feeds[$uri] = $this->_client->getFeed($query);
         }
 
@@ -86,6 +142,12 @@ class Blog
         return null;
     }
 
+    /**
+     * Returns the message ID
+     *
+     * @param string $title The title or URL of the message
+     * @return string       The message ID
+     */
     public function getPostId($title)
     {
         $uri = 'http://www.blogger.com/feeds/' . $this->_blogId . '/posts/default';
@@ -93,6 +155,14 @@ class Blog
         return $this->getFeedEntry($uri, $title);
     }
 
+    /**
+     * Updates a blog message
+     *
+     * @param string $title   The message title
+     * @param string $content The message content
+     * @param string $postId  The message ID
+     * @return string         The message ID
+     */
     public function updatePost($title, $content, $postId)
     {
         $uri = 'http://www.blogger.com/feeds/' . $this->_blogId . '/posts/default/' . $postId;
@@ -110,6 +180,13 @@ class Blog
         return $postId;
     }
 
+    /**
+     * Creates or updates a blog message
+     *
+     * @param string $title   The message title
+     * @param string $content The message content
+     * @return string         The message ID
+     */
     public function savePost($title, $content)
     {
         if ($postId = $this->getPostId($title)) {

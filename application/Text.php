@@ -2,7 +2,7 @@
 /**
  * Règle de saint Benoît
  *
- * Publish rule entries
+ * Processing of chapters
  *
  * @author    Michel Corne <mcorne@yahoo.com>
  * @copyright 2014 Michel Corne
@@ -17,7 +17,7 @@ class Text
     const SPECIAL_CHAR = '€';
 
     public $blog;
-    public $icons;
+    public $images;
     public $prevChapter;
     public $prevLine;
     public $prevNote;
@@ -234,7 +234,7 @@ class Text
         $this->blog = $blog;
         $this->images = array_flip($this->images);
         $this->bible = implode('|', $this->bible);
-        $this->icons = require __DIR__ . '/../data/icons.php';
+        $this->images = require __DIR__ . '/../data/images.php';
     }
 
     public function checkLineNumbers($latin, $french)
@@ -350,7 +350,7 @@ class Text
 </tr>
 </table>';
 
-        $icon = isset($this->icons[$number])? $this->icons[$number] : $this->icons['default'];
+        $icon = isset($this->images[$number])? $this->images[$number] : $this->images['default'];
 
         $number = $frenchTitle['number'] and $number .= '.';
 
