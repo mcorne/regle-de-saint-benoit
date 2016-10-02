@@ -5,9 +5,9 @@
  * Processing of chapters
  *
  * @author    Michel Corne <mcorne@yahoo.com>
- * @copyright 2014 Michel Corne
+ * @copyright 2016 Michel Corne
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
- * @link      http://regle-de-saint-benoit.blogspot.fr/
+ * @link      https://regle-de-saint-benoit.blogspot.fr/
  */
 
 require 'Blog.php';
@@ -22,83 +22,10 @@ class Text
     public $prevLine;
     public $prevNote;
 
-    public $urls = array(
-        0 => '/2011/08/prologue.html',
-        1 => '/2011/08/les-categories-de-moines.html',
-        2 => '/2011/08/les-qualites-que-doit-avoir-labbe.html',
-        3 => '/2011/08/lappel-des-freres-en-conseil.html',
-        4 => '/2011/08/les-instruments-des-bonnes-oeuvres.html',
-        5 => '/2011/08/lobeissance.html',
-        6 => '/2011/08/la-retenue-dans-le-langage.html',
-        7 => '/2011/08/lhumilite.html',
-        8 => '/2011/08/les-offices-divins-dans-la-nuit.html',
-        9 => '/2011/08/combien-il-faut-dire-de-psaumes-aux.html',
-        10 => '/2011/08/comment-celebrer-en-ete-la-louange.html',
-        11 => '/2011/08/comment-celebrer-les-vigiles-le.html',
-        12 => '/2011/08/comment-celebrer-la-solennite-des.html',
-        13 => '/2011/08/comment-celebrer-les-laudes-aux-jours.html',
-        14 => '/2011/08/comment-celebrer-les-vigiles-aux-fetes.html',
-        15 => '/2011/08/quand-dire-lalleluia.html',
-        16 => '/2011/08/comment-celebrer-les-divins-offices.html',
-        17 => '/2011/08/combien-de-psaumes-il-faut-dire-ces.html',
-        18 => '/2011/08/en-quel-ordre-il-faut-dire-les-psaumes.html',
-        19 => '/2011/08/le-maintien-pendant-la-psalmodie.html',
-        20 => '/2011/08/la-reverence-dans-la-priere.html',
-        21 => '/2011/08/les-doyens-du-monastere.html',
-        22 => '/2011/08/comment-dormiront-les-moines.html',
-        23 => '/2011/08/lexcommunication-pour-les-fautes.html',
-        24 => '/2011/08/quelle-doit-etre-la-mesure-de.html',
-        25 => '/2011/08/les-fautes-graves.html',
-        26 => '/2011/08/ceux-qui-sans-permission-se-joignent.html',
-        27 => '/2011/08/quelle-sollicitude-labbe-doit-avoir.html',
-        28 => '/2011/08/ceux-qui-souvent-repris-refusent-de-se.html',
-        29 => '/2011/08/si-lon-doit-recevoir-de-nouveau-les.html',
-        30 => '/2011/08/comment-corriger-les-jeunes-enfants.html',
-        31 => '/2011/08/les-qualites-que-doit-avoir-le.html',
-        32 => '/2011/08/les-outils-et-objets-du-monastere.html',
-        33 => '/2011/08/si-les-moines-doivent-avoir-quelque.html',
-        34 => '/2011/08/si-tous-doivent-recevoir-egalement-le.html',
-        35 => '/2011/08/les-semainiers-de-la-cuisine.html',
-        36 => '/2011/08/les-freres-malades.html',
-        37 => '/2011/08/les-vieillards-et-les-enfants.html',
-        38 => '/2011/08/le-lecteur-de-semaine.html',
-        39 => '/2011/08/la-mesure-de-la-nourriture.html',
-        40 => '/2011/08/la-mesure-de-la-boisson.html',
-        41 => '/2011/08/quelle-heure-les-freres-doivent-prendre.html',
-        42 => '/2011/08/que-personne-ne-parle-apres-complies.html',
-        43 => '/2011/08/ceux-qui-arrivent-en-retard-loeuvre-de.html',
-        44 => '/2011/08/comment-les-excommunies-font.html',
-        45 => '/2011/08/ceux-qui-se-trompent-loratoire.html',
-        46 => '/2011/08/ceux-qui-font-des-fautes-en-quelque.html',
-        47 => '/2011/08/la-charge-dannoncer-loeuvre-de-dieu.html',
-        48 => '/2011/08/le-travail-manuel-de-chaque-jour.html',
-        49 => '/2011/08/lobservance-du-careme.html',
-        50 => '/2011/08/les-freres-qui-travaillent-loin-de.html',
-        51 => '/2011/08/les-freres-qui-ne-sen-vont-qua-faible.html',
-        52 => '/2011/08/loratoire-du-monastere.html',
-        53 => '/2011/08/la-reception-des-hotes.html',
-        54 => '/2011/08/si-un-moine-peut-recevoir-des-lettres.html',
-        55 => '/2011/08/les-vetements-et-les-chaussures-des_08.html',
-        56 => '/2011/08/la-table-de-labbe.html',
-        57 => '/2011/08/les-artisans-du-monastere.html',
-        58 => '/2011/08/la-maniere-de-recevoir-les-freres.html',
-        59 => '/2011/08/les-fils-de-notables-ou-de-pauvres-qui.html',
-        60 => '/2011/08/les-pretres-qui-desireraient-se-fixer.html',
-        61 => '/2011/08/comment-recevoir-les-moines-etrangers.html',
-        62 => '/2011/08/les-pretres-du-monastere.html',
-        63 => '/2011/08/le-rang-garder-dans-la-communaute.html',
-        64 => '/2011/08/linstitution-de-labbe.html',
-        65 => '/2011/08/le-prieur-du-monastere.html',
-        66 => '/2011/08/les-portiers-du-monastere.html',
-        67 => '/2011/08/des-freres-que-lon-envoie-en-voyage.html',
-        68 => '/2011/08/si-lon-enjoint-un-frere-des-choses.html',
-        69 => '/2011/08/que-nul-dans-le-monastere-ne-se.html',
-        70 => '/2011/08/que-nul-ne-se-permette-de-frapper-tout.html',
-        71 => '/2011/08/que-les-freres-sobeissent-mutuellement.html',
-        72 => '/2011/08/le-bon-zele-que-doivent-avoir-les.html',
-        73 => '/2011/08/toute-la-pratique-de-la-justice-nest.html',
-    );
-
+    /**
+     *
+     * @var array
+     */
     public $bible = array(
         'Actes',
         'Apocalypse',
@@ -137,6 +64,10 @@ class Text
         'Tobit',
     );
 
+    /**
+     *
+     * @var array
+     */
     public $images = array(
         '0006' => '-f. 4r-',
         '0007' => '-f. 4v-',
@@ -218,6 +149,10 @@ class Text
         '0083' => '-f. 41v-',
     );
 
+    /**
+     *
+     * @var array
+     */
     public $romanNumbers = array(
         '0', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX',
         'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX',
@@ -229,42 +164,143 @@ class Text
         'LXX', 'LXXI', 'LXXII', 'LXXIII',
     );
 
-    public function __construct($blog)
+    /**
+     *
+     * @var array
+     */
+    public $urls = array(
+        0 => '/2011/08/prologue.html',
+        1 => '/2011/08/les-categories-de-moines.html',
+        2 => '/2011/08/les-qualites-que-doit-avoir-labbe.html',
+        3 => '/2011/08/lappel-des-freres-en-conseil.html',
+        4 => '/2011/08/les-instruments-des-bonnes-oeuvres.html',
+        5 => '/2011/08/lobeissance.html',
+        6 => '/2011/08/la-retenue-dans-le-langage.html',
+        7 => '/2011/08/lhumilite.html',
+        8 => '/2011/08/les-offices-divins-dans-la-nuit.html',
+        9 => '/2011/08/combien-il-faut-dire-de-psaumes-aux.html',
+        10 => '/2011/08/comment-celebrer-en-ete-la-louange.html',
+        11 => '/2011/08/comment-celebrer-les-vigiles-le.html',
+        12 => '/2011/08/comment-celebrer-la-solennite-des.html',
+        13 => '/2011/08/comment-celebrer-les-laudes-aux-jours.html',
+        14 => '/2011/08/comment-celebrer-les-vigiles-aux-fetes.html',
+        15 => '/2011/08/quand-dire-lalleluia.html',
+        16 => '/2011/08/comment-celebrer-les-divins-offices.html',
+        17 => '/2011/08/combien-de-psaumes-il-faut-dire-ces.html',
+        18 => '/2011/08/en-quel-ordre-il-faut-dire-les-psaumes.html',
+        19 => '/2011/08/le-maintien-pendant-la-psalmodie.html',
+        20 => '/2011/08/la-reverence-dans-la-priere.html',
+        21 => '/2011/08/les-doyens-du-monastere.html',
+        22 => '/2011/08/comment-dormiront-les-moines.html',
+        23 => '/2011/08/lexcommunication-pour-les-fautes.html',
+        24 => '/2011/08/quelle-doit-etre-la-mesure-de.html',
+        25 => '/2011/08/les-fautes-graves.html',
+        26 => '/2011/08/ceux-qui-sans-permission-se-joignent.html',
+        27 => '/2011/08/quelle-sollicitude-labbe-doit-avoir.html',
+        28 => '/2011/08/ceux-qui-souvent-repris-refusent-de-se.html',
+        29 => '/2011/08/si-lon-doit-recevoir-de-nouveau-les.html',
+        30 => '/2011/08/comment-corriger-les-jeunes-enfants.html',
+        31 => '/2011/08/les-qualites-que-doit-avoir-le.html',
+        32 => '/2011/08/les-outils-et-objets-du-monastere.html',
+        33 => '/2011/08/si-les-moines-doivent-avoir-quelque.html',
+        34 => '/2011/08/si-tous-doivent-recevoir-egalement-le.html',
+        35 => '/2011/08/les-semainiers-de-la-cuisine.html',
+        36 => '/2011/08/les-freres-malades.html',
+        37 => '/2011/08/les-vieillards-et-les-enfants.html',
+        38 => '/2011/08/le-lecteur-de-semaine.html',
+        39 => '/2011/08/la-mesure-de-la-nourriture.html',
+        40 => '/2011/08/la-mesure-de-la-boisson.html',
+        41 => '/2011/08/quelle-heure-les-freres-doivent-prendre.html',
+        42 => '/2011/08/que-personne-ne-parle-apres-complies.html',
+        43 => '/2011/08/ceux-qui-arrivent-en-retard-loeuvre-de.html',
+        44 => '/2011/08/comment-les-excommunies-font.html',
+        45 => '/2011/08/ceux-qui-se-trompent-loratoire.html',
+        46 => '/2011/08/ceux-qui-font-des-fautes-en-quelque.html',
+        47 => '/2011/08/la-charge-dannoncer-loeuvre-de-dieu.html',
+        48 => '/2011/08/le-travail-manuel-de-chaque-jour.html',
+        49 => '/2011/08/lobservance-du-careme.html',
+        50 => '/2011/08/les-freres-qui-travaillent-loin-de.html',
+        51 => '/2011/08/les-freres-qui-ne-sen-vont-qua-faible.html',
+        52 => '/2011/08/loratoire-du-monastere.html',
+        53 => '/2011/08/la-reception-des-hotes.html',
+        54 => '/2011/08/si-un-moine-peut-recevoir-des-lettres.html',
+        55 => '/2011/08/les-vetements-et-les-chaussures-des_08.html',
+        56 => '/2011/08/la-table-de-labbe.html',
+        57 => '/2011/08/les-artisans-du-monastere.html',
+        58 => '/2011/08/la-maniere-de-recevoir-les-freres.html',
+        59 => '/2011/08/les-fils-de-notables-ou-de-pauvres-qui.html',
+        60 => '/2011/08/les-pretres-qui-desireraient-se-fixer.html',
+        61 => '/2011/08/comment-recevoir-les-moines-etrangers.html',
+        62 => '/2011/08/les-pretres-du-monastere.html',
+        63 => '/2011/08/le-rang-garder-dans-la-communaute.html',
+        64 => '/2011/08/linstitution-de-labbe.html',
+        65 => '/2011/08/le-prieur-du-monastere.html',
+        66 => '/2011/08/les-portiers-du-monastere.html',
+        67 => '/2011/08/des-freres-que-lon-envoie-en-voyage.html',
+        68 => '/2011/08/si-lon-enjoint-un-frere-des-choses.html',
+        69 => '/2011/08/que-nul-dans-le-monastere-ne-se.html',
+        70 => '/2011/08/que-nul-ne-se-permette-de-frapper-tout.html',
+        71 => '/2011/08/que-les-freres-sobeissent-mutuellement.html',
+        72 => '/2011/08/le-bon-zele-que-doivent-avoir-les.html',
+        73 => '/2011/08/toute-la-pratique-de-la-justice-nest.html',
+    );
+
+    public function __construct()
     {
-        $this->blog = $blog;
         $this->images = array_flip($this->images);
         $this->bible = implode('|', $this->bible);
         $this->images = require __DIR__ . '/../data/images.php';
     }
 
-    public function checkLineNumbers($latin, $french)
+    /**
+     *
+     * @param array $latinChapterLines
+     * @param array $frenchChapterLines
+     * @throws Exception
+     */
+    public function checkLineNumbers($latinChapterLines, $frenchChapterLines)
     {
-        array_keys($latin) == array_keys($french) or die('first numbers do not match');
+        if (array_keys($latinChapterLines) != array_keys($frenchChapterLines)) {
+            throw new Exception('first numbers do not match');
+        }
 
-        foreach(array_keys($latin) as $paragraphNumber) {
-            count($latin[$paragraphNumber]) == count($french[$paragraphNumber]) or
-            die('number count do not match in paragraph: ' . $paragraphNumber);
+        foreach(array_keys($latinChapterLines) as $paragraphNumber) {
+            if (count($latinChapterLines[$paragraphNumber]) != count($frenchChapterLines[$paragraphNumber])) {
+                throw new Exception("number count do not match in paragraph: $paragraphNumber");
+            }
 
-            foreach(array_keys($latin[$paragraphNumber]) as $lineIndex) {
-                $latin[$paragraphNumber][$lineIndex]['number'] == $french[$paragraphNumber][$lineIndex]['number'] or
-                die('number do not match in line: ' . $lineIndex);
+            foreach(array_keys($latinChapterLines[$paragraphNumber]) as $lineIndex) {
+                if ($latinChapterLines[$paragraphNumber][$lineIndex]['number'] != $frenchChapterLines[$paragraphNumber][$lineIndex]['number']) {
+                    throw new Exception("number do not match in line: $lineIndex");
+                }
             }
         }
     }
 
-    public function checkLinksToBible($text)
+    /**
+     *
+     * @param array $frenchChapter
+     * @throws Exception
+     */
+    public function checkLinksToBible($frenchChapter)
     {
-        isset($text['notes']) and $text['lines'][] = $text['notes'];
+        if (isset($frenchChapter['notes'])) {
+            $frenchChapter['lines'][] = $frenchChapter['notes'];
+        }
 
-        foreach($text['lines'] as $lines) {
+        foreach($frenchChapter['lines'] as $lines) {
             foreach($lines as $line) {
                 if (preg_match_all('~\(([^)]+)\)~', $line['text'], $matches)) {
                     foreach($matches[1] as $links) {
                         foreach(explode('; ', $links) as $link) {
-                            preg_match('~^(cf. )?(' . $this->bible . ') \d+(?!,)$~', $link) or
-                            preg_match('~^(cf. )?(' . $this->bible . ') \d+, \d+(?!-)$~', $link) or
-                            preg_match('~^(cf. )?(' . $this->bible . ') \d+, \d+-\d+$~', $link) or
-                            die('invalid link to bible: ' . $line['text']);
+                            if (preg_match('~^(cf. )?(' . $this->bible . ') \d+(?!,)$~', $link) or
+                                preg_match('~^(cf. )?(' . $this->bible . ') \d+, \d+(?!-)$~', $link) or
+                                preg_match('~^(cf. )?(' . $this->bible . ') \d+, \d+-\d+$~', $link)
+                            ) {
+                                continue;
+                            }
+
+                            throw new Exception('invalid link to bible: ' . $line['text']);
                         }
                     }
                 }
@@ -272,29 +308,45 @@ class Text
         }
     }
 
-    public function checkLinksToImages($paragraphs)
+    /**
+     *
+     * @param array $latinChapterLines
+     * @throws Exception
+     */
+    public function checkLinksToImages($latinChapterLines)
     {
-        foreach($paragraphs as $lines) {
+        foreach($latinChapterLines as $lines) {
             foreach($lines as $line) {
                 if (preg_match('~-f. [^\]\-]+-~', $line['text'], $match)) {
                     $text = $match[0];
-                    isset($this->images[$text]) or die('invalid image link: ' . $line['text']);
-                }
+
+                    if (! isset($this->images[$text])) {
+                        throw new Exception('invalid image link: ' . $line['text']);
+                    }                }
             }
         }
     }
 
-    public function checkNoteNumbers($text)
+    /**
+     *
+     * @param array $chapter
+     * @return array
+     * @throws Exception
+     */
+    public function checkNoteNumbers($chapter)
     {
-        $noteNumbers = array();
+        $noteNumbers = [];
 
-        $text['lines'][][] = $text['title'];
+        $chapter['lines'][][] = $chapter['title'];
 
-        foreach($text['lines'] as $lines) {
+        foreach($chapter['lines'] as $lines) {
             foreach($lines as $line) {
                 if (preg_match_all('~\[([^\]]+)\]~', $line['text'], $matches)) {
                     foreach($matches[1] as $number) {
-                        isset($text['notes'][$number]) or die('missing text note for line: ' . $line['text']);
+                        if (! isset($chapter['notes'][$number])) {
+                            throw new Exception('missing text note for line: ' . $line['text']);
+                        }
+
                         $noteNumbers[$number] = true;
                     }
                 }
@@ -304,22 +356,41 @@ class Text
         return $noteNumbers;
     }
 
-    public function checkNoteTexts($notes, $noteNumbers)
+    /**
+     *
+     * @param array $chapterNotes
+     * @param array $noteNumbers
+     * @throws Exception
+     */
+    public function checkNoteTexts($chapterNotes, $noteNumbers)
     {
-        foreach ($notes as $number => $note) {
+        foreach ($chapterNotes as $number => $note) {
             $number = $note['number'];
             $text = $note['text'];
-            isset($noteNumbers[$number]) or die("unused note text: $number $text");
+
+            if (! isset($noteNumbers[$number])) {
+                throw new Exception("unused note text: $number $text");
+            }
         }
     }
 
-    public function fixPunctuation($content) {
-        $content = preg_replace('~« ~', '«&nbsp;', $content);
-        $content = preg_replace('~ (»|\?|!|:)~', '&nbsp;$1', $content);
+    /**
+     *
+     * @param string $html
+     * @return string
+     */
+    public function fixPunctuation($html) {
+        $html = preg_replace('~« ~', '«&nbsp;', $html);
+        $html = preg_replace('~ (»|\?|!|:)~', '&nbsp;$1', $html);
 
-        return $content;
+        return $html;
     }
 
+    /**
+     *
+     * @param string $line
+     * @return string
+     */
     public function makeFrenchLine($line) {
         $line = array_map('trim', $line);
         $line = sprintf(
@@ -330,10 +401,31 @@ class Text
         return $line;
     }
 
+    /**
+     *
+     * @param string $latinTitle
+     * @param string $frenchTitle
+     * @param array $paragraphs
+     * @param array $latinNotes
+     * @param array $frenchNotes
+     * @param int $number
+     * @return string
+     */
     public function makeHtml($latinTitle, $frenchTitle, $paragraphs, $latinNotes, $frenchNotes, $number)
     {
-        $pattern =
-'<table class="sb-content">
+        static $pattern =
+'
+<!--
+  Règle de saint Benoît
+  %s
+
+  Generated %s
+
+  @copyright %d Michel Corne
+  @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
+-->
+
+<table class="sb-content">
 <tr class="sb-first">
 <td class="sb-left"><div class="sb-chapter"><a href="%s">Chapitre précédent </a></div>
 <div class="sb-title"><span class="sb-number">%s</span><span class="sb-text">%s</span></div>
@@ -352,18 +444,30 @@ class Text
 
         $icon = isset($this->images[$number])? $this->images[$number] : $this->images['default'];
 
-        $number = $frenchTitle['number'] and $number .= '.';
+        if ($number = $frenchTitle['number']) {
+            $number .= '.';
+        }
 
         $nextChapter = ($number + 1) % 74;
         $previousChapter = ($number - 1 + 74) % 74;
 
-        return sprintf($pattern,
+        $html = sprintf($pattern,
+            $frenchTitle['text'],
+            date('c'), // generation date
+            date('Y'), // copyright year
             $this->urls[$previousChapter], $number, $frenchTitle['text'],
             $icon[0], $icon[1], $this->urls[$nextChapter], $latinTitle['number'], $this->makeLatinCorrections($latinTitle['text']),
             $paragraphs, $frenchNotes, $latinNotes,
             $this->urls[$previousChapter], $this->urls[$nextChapter]);
+
+        return $html;
     }
 
+    /**
+     *
+     * @param string $line
+     * @return string
+     */
     public function makeLatinLine($line) {
         $line = array_map('trim', $line);
         $line = sprintf(
@@ -374,30 +478,45 @@ class Text
         return $line;
     }
 
-    public function makeLinksToBible($content)
+    /**
+     *
+     * @param string $html
+     * @return string
+     */
+    public function makeLinksToBible($html)
     {
-        $content = preg_replace_callback('~(' . $this->bible . ') \d+, \d+-\d+~', array($this, 'replaceLinkToBible'), $content);
-        $content = preg_replace_callback('~(' . $this->bible . ') \d+, \d+~', array($this, 'replaceLinkToBible'), $content);
-        $content = preg_replace_callback('~(' . $this->bible . ') \d+~', array($this, 'replaceLinkToBible'), $content);
+        $html = preg_replace_callback('~(' . $this->bible . ') \d+, \d+-\d+~', array($this, 'replaceLinkToBible'), $html);
+        $html = preg_replace_callback('~(' . $this->bible . ') \d+, \d+~', array($this, 'replaceLinkToBible'), $html);
+        $html = preg_replace_callback('~(' . $this->bible . ') \d+~', array($this, 'replaceLinkToBible'), $html);
 
-        $content = str_replace(self::SPECIAL_CHAR, ' ', $content);
+        $html = str_replace(self::SPECIAL_CHAR, ' ', $html);
 
-        $content = str_replace('(', '<span class="sb-bible-ref">(', $content);
-        $content = str_replace(')', ')</span>', $content);
+        $html = str_replace('(', '<span class="sb-bible-ref">(', $html);
+        $html = str_replace(')', ')</span>', $html);
 
-        $content = str_replace('cf. ', 'cf.&nbsp;', $content);
+        $html = str_replace('cf. ', 'cf.&nbsp;', $html);
 
-        return $content;
+        return $html;
     }
 
-    public function makeLinksToImages($content)
+    /**
+     *
+     * @param string $html
+     * @return string
+     */
+    public function makeLinksToImages($html)
     {
-        $content = preg_replace_callback('~(-f. )([^\-]+)(-)~i', array($this, 'replaceLinkToMontserrat'), $content);
-        $content = preg_replace_callback('~-sg. ([^\-]+)-~i', array($this, 'replaceLinkToSaintGall'), $content);
+        $html = preg_replace_callback('~(-f. )([^\-]+)(-)~i', array($this, 'replaceLinkToMontserrat'), $html);
+        $html = preg_replace_callback('~-sg. ([^\-]+)-~i', array($this, 'replaceLinkToSaintGall'), $html);
 
-        return $content;
+        return $html;
     }
 
+    /**
+     *
+     * @param string $line
+     * @return string
+     */
     public function makeLatinCorrections($line)
     {
         // two words or more in saint-gall, none in montserrat, replaces for ex (*~hæc omnia)
@@ -448,15 +567,29 @@ class Text
         return $line;
     }
 
+    /**
+     *
+     * @param array $frenchChapter
+     * @param array $latinChapter
+     * @param int $number
+     * @return string
+     */
     public function makeMessage($frenchChapter, $latinChapter, $number)
     {
         $this->checkLineNumbers($latinChapter['lines'], $frenchChapter['lines']);
 
         $noteNumbers = $this->checkNoteNumbers($latinChapter);
-        isset($latinChapter['notes']) and $this->checkNoteTexts($latinChapter['notes'], $noteNumbers);
+
+        if (isset($latinChapter['notes'])) {
+            $this->checkNoteTexts($latinChapter['notes'], $noteNumbers);
+        }
 
         $noteNumbers = $this->checkNoteNumbers($frenchChapter);
-        isset($frenchChapter['notes']) and $this->checkNoteTexts($frenchChapter['notes'], $noteNumbers);
+
+        if (isset($frenchChapter['notes'])) {
+            $this->checkNoteTexts($frenchChapter['notes'], $noteNumbers);
+        }
+
         $this->checkLinksToBible($frenchChapter);
 
         $this->checkLinksToImages($latinChapter['lines']);
@@ -483,51 +616,25 @@ class Text
         return $html;
     }
 
-    public function makeMessages($target = null)
+    /**
+     *
+     * @param string $html
+     * @return string
+     */
+    public function makeNoteRefNumbers($html)
     {
-        $latin = $this->parseFile(__DIR__ . '/../data/montserrat.txt');
-        $french = $this->parseFile(__DIR__ . '/../data/schmitz.txt');
-
-        array_keys($latin) == array_keys($french) or die('chapters indexes do not match');
-
-        foreach($latin as $number => $latinChapter) {
-            if (isset($target) and $number != $target) {
-                continue;
-            }
-
-            $html = $this->makeMessage($french[$number], $latinChapter, $number);
-            $info = pathinfo($this->urls[$number]);
-
-            $file = __DIR__ . "/../messages/$number-" . basename($this->urls[$number]);
-            $prevHtml = file_exists($file)? file_get_contents($file) : null;
-
-            if ($html != $prevHtml) {
-                echo $number;
-                $updated = true;
-
-                if ($this->blog) {
-                    $this->blog->savePost($this->urls[$number], $html);
-                    file_put_contents($file, $html) or die('cannot create message file');
-                } else {
-                    file_put_contents(__DIR__ . '/../messages/temp.html', $html);
-                }
-
-                echo '.';
-            }
-        }
-
-        empty($updated) and print 'no update';
-    }
-
-    public function makeNoteRefNumbers($content)
-    {
-        $content = preg_replace('~\[(\d+|[a-z])\]~',
+        $html = preg_replace('~\[(\d+|[a-z])\]~',
             '<span class="sb-note-ref">&nbsp;<a name="note-ref-$1" href="#note-text-$1">$1</a></span>',
-            $content);
+            $html);
 
-        return $content;
+        return $html;
     }
 
+    /**
+     *
+     * @param string $note
+     * @return string
+     */
     public function makeNote($note)
     {
         $format = '<div><a class="sb-note-number" name="note-text-%1$s" href="#note-ref-%1$s">%1$s</a>. <span class="sb-note-text">%2$s</span></div>';
@@ -537,6 +644,11 @@ class Text
         return $note;
     }
 
+    /**
+     *
+     * @param array $notes
+     * @return array
+     */
     public function makeNotes($notes)
     {
         $notes = array_map(array($this, 'makeNote'), $notes);
@@ -545,45 +657,78 @@ class Text
         return $notes;
     }
 
+    /**
+     *
+     * @param array $paragraph
+     * @param string $callback
+     * @param string $class
+     * @return string
+     */
     public function makeParagraph($paragraph, $callback, $class)
     {
-        $paragraph = array_map(array($this, $callback), $paragraph);
-        $paragraph = sprintf("<td class=\"%s\"><span class=\"sb-paragraph\">%s</span></td>", $class, implode(' ', $paragraph));
+        $lines = array_map(array($this, $callback), $paragraph);
+        $html = sprintf("<td class=\"%s\"><span class=\"sb-paragraph\">%s</span></td>", $class, implode(' ', $lines));
 
-        return $paragraph;
+        return $html;
     }
 
-    public function makeParagraphs($latin, $french)
+    /**
+     *
+     * @param array $latinChapterLines
+     * @param array $frenchChapterLines
+     * @return string
+     */
+    public function makeParagraphs($latinChapterLines, $frenchChapterLines)
     {
-        foreach(array_keys($latin) as $number) {
-            $paragraphs[] = sprintf("<tr class=\"sb-middle\">\n%s\n%s\n</tr>",
-                $this->makeParagraph($french[$number], 'makeFrenchLine', 'sb-left'),
-                $this->makeParagraph($latin[$number], 'makeLatinLine', 'sb-right'));
+        foreach(array_keys($latinChapterLines) as $number) {
+            $paragraphs[] = sprintf(
+                "<tr class=\"sb-middle\">\n%s\n%s\n</tr>",
+                $this->makeParagraph($frenchChapterLines[$number], 'makeFrenchLine', 'sb-left'),
+                $this->makeParagraph($latinChapterLines[$number], 'makeLatinLine', 'sb-right'));
         }
 
-        $paragraphs = implode("\n", $paragraphs);
+        $html = implode("\n", $paragraphs);
 
-        return $paragraphs;
+        return $html;
     }
 
+    /**
+     *
+     * @param string $line
+     * @return array
+     * @throws Exception
+     */
     public function parseLine($line)
     {
-        if (preg_match('~(\d+) (.+)~', $line, $match)) {
-            // this is a french chapter
-            list(, $number, $text) = $match;
-            $number < 1 and die('line number lower than 1: ' . $line);
-            $number == ++$this->prevLine or die('not expecting line: ' . $line);
+        if (! preg_match('~(\d+) (.+)~', $line, $match)) {
+            throw new Exception('cannot parse line: ' . $line);
+        }
 
-        } else {
-            die('cannot parse line: ' . $line);
+        // this is a french chapter
+        list(, $number, $text) = $match;
+
+        if ($number < 1) {
+            throw new Exception('line number lower than 1: ' . $line);
+        }
+
+        if ($number != ++$this->prevLine) {
+            throw new Exception('not expecting line: ' . $line);
         }
 
         return array($number, $text);
     }
 
+    /**
+     *
+     * @param string $file
+     * @return array
+     * @throws Exception
+     */
     public function parseFile($file)
     {
-        $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) or die('cannot read file');
+        if (! $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)) {
+            throw new Exception("cannot read file: $file");
+        }
 
         $this->prevChapter = -1;
         $this->prevLine = 0;
@@ -606,7 +751,10 @@ class Text
                     // break;
 
                 case '-': // this is a line within a paragraph
-                    isset($index) or die('expecting chapter instead of: ' . $line);
+                    if (! isset($index)) {
+                        throw new Exception('expecting chapter instead of: ' . $line);
+                    }
+
                     list($number, $text) = $this->parseLine($line);
 
                     if ($isFirstLine) {
@@ -614,12 +762,18 @@ class Text
                         $firstLineNb = $number;
                     }
 
-                    $firstLineNb or die('expecting paragraph first line instead of: ' . $line);
+                    if (! $firstLineNb) {
+                        throw new Exception('expecting paragraph first line instead of: ' . $line);
+                    }
+
                     $chapters[$index]['lines'][$firstLineNb][$number] = array('number' => $number, 'text' => $text);
                     break;
 
                 case '=': // this is a note
-                    isset($index) or die('expecting chapter instead of: ' . $line);
+                    if (! isset($index)) {
+                        throw new Exception('expecting chapter instead of: ' . $line);
+                    }
+
                     list($number, $text) = $this->parseNote($line);
                     $chapters[$index]['notes'][$number] = array('number' => $number, 'text' => $text);
                     break;
@@ -630,14 +784,43 @@ class Text
         return $chapters;
     }
 
+    /**
+     *
+     * @return array
+     * @throws Exception
+     */
+    public function parseFiles()
+    {
+        $frenchChapters = $this->parseFile(__DIR__ . '/../data/schmitz.txt');
+        $latinChapters = $this->parseFile(__DIR__ . '/../data/montserrat.txt');
+
+        if (array_keys($frenchChapters) != array_keys($latinChapters)) {
+            throw new Exception('chapters indexes do not match');
+        }
+
+        return array($frenchChapters, $latinChapters);
+    }
+
+    /**
+     *
+     * @param string $line
+     * @return array
+     * @throws Exception
+     */
     public function parseNote($line)
     {
         if (preg_match('~(\d+) (.+)~', $line, $match)) {
             // this is a note number
             // todo: should check this is in french text
             list(, $number, $text) = $match;
-            $number < 1 and die('note number lower than 1: ' . $line);
-            $number == ++$this->prevNote or die('not expecting note: ' . $line);
+
+            if ($number < 1) {
+                throw new Exception('note number lower than 1: ' . $line);
+            }
+
+            if ($number != ++$this->prevNote) {
+                throw new Exception('not expecting note: ' . $line);
+            }
 
         } else if (preg_match('~([a-z]+) (.+)~', $line, $match)) {
             // this is a note letter
@@ -645,40 +828,70 @@ class Text
             list(, $number, $text) = $match;
 
         } else {
-            die('cannot parse note: ' . $line);
+            throw new Exception('cannot parse note: ' . $line);
         }
 
         return array($number, $text);
     }
 
+    /**
+     *
+     * @param string $line
+     * @return array
+     * @throws Exception
+     */
     public function parseTitle($line)
     {
         if ($line == 'Prologus' or
             strpos($line, 'Incipit prologus regulae sancti Benedicti abbatis') or
             $line == 'PROLOGUE')
         {
-            $this->prevChapter == -1 or die('not expecting prologue: ' . $line);
+            if ($this->prevChapter != -1) {
+                throw new Exception('not expecting prologue: ' . $line);
+            }
+
             $number = '';
             $this->prevChapter = 0;
             $text = $line;
 
         } else if (preg_match('~Chapitre (\d+) (.+)~', $line, $match)) {
             // this is a french chapter
-            $this->prevChapter == -1 and die('expecting prologue instead of: ' . $line);
+            if ($this->prevChapter == -1) {
+                throw new Exception('expecting prologue instead of: ' . $line);
+            }
+
             list(, $number, $text) = $match;
-            $number < 1 and die('chapter number lower than 1: ' . $line);
-            $number > 73 and die('chapter number higher that 73: ' . $line);
-            $number == ++$this->prevChapter or die('not expecting chapter: ' . $line);
+
+            if ($number < 1) {
+                throw new Exception('chapter number lower than 1: ' . $line);
+            }
+
+            if ($number > 73) {
+                throw new Exception('chapter number higher that 73: ' . $line);
+            }
+
+            if ($number != ++$this->prevChapter) {
+                throw new Exception('not expecting chapter: ' . $line);
+            }
 
         } else if (preg_match('~([IVXL]+)\. (.+)~', $line, $match)) {
             // this is a latin chapter
-            $this->prevChapter == -1 and die('expecting prologus instead of: ' . $line);
+            if ($this->prevChapter == -1) {
+                throw new Exception('expecting prologus instead of: ' . $line);
+            }
+
             list(, $number, $text) = $match;
-            in_array($number, $this->romanNumbers) or die('chapter number out of range: ' . $line);
-            $number == $this->romanNumbers[++$this->prevChapter] or die('not expecting chapter: ' . $line);
+
+            if (! in_array($number, $this->romanNumbers)) {
+                throw new Exception('chapter number out of range: ' . $line);
+            }
+
+            if ($number != $this->romanNumbers[++$this->prevChapter]) {
+                throw new Exception('not expecting chapter: ' . $line);
+            }
 
         } else {
-            die('cannot parse chapter: ' . $line);
+            throw new Exception('cannot parse chapter: ' . $line);
         }
 
         // resets line number
@@ -690,6 +903,45 @@ class Text
         return array($this->prevChapter, $number, $text);
     }
 
+    /**
+     * Reads a file.
+     *
+     * @param string $file The file name
+     *
+     * @throws Exception
+     *
+     * @return string The file content
+     */
+    public function readFile($file)
+    {
+        if (! $content = @file_get_contents($file)) {
+            throw new Exception("cannot read file: $file");
+        }
+
+        return $content;
+    }
+
+    /**
+     * Removes the generated date from a docblock for comparison purposes.
+     *
+     * @param string $html The HTML content of a chapter
+     *
+     * @return string The HTML content without the generated date
+     */
+    public function removeGeneratedDate($html)
+    {
+        // removes the date in the chapter being translated
+        $html = preg_replace('~^\s*Generated.+?$~m', '', $html);
+        $html = preg_replace('~^\s*@copyright.+?$~m', '', $html);
+
+        return $html;
+    }
+
+    /**
+     *
+     * @param array $text
+     * @return string
+     */
     public function replaceLinkToBible($text)
     {
         $format =
@@ -708,6 +960,11 @@ class Text
         return $link;
     }
 
+    /**
+     *
+     * @param array $text
+     * @return string
+     */
     public function replaceLinkToMontserrat($text)
     {
         $format =
@@ -719,6 +976,11 @@ class Text
         return $link;
     }
 
+    /**
+     *
+     * @param array $text
+     * @return string
+     */
     public function replaceLinkToSaintGall($text)
     {
         $format =
@@ -728,5 +990,109 @@ class Text
         $link = sprintf($format, $text[1]);
 
         return $link;
+    }
+
+    public function saveMessage($html, $frenchChapter, $blog, $number)
+    {
+        $url = $this->urls[$number];
+        $file = __DIR__ . "/../messages/$number-" . basename($url);
+        $prevHtml = file_exists($file)? $this->readFile($file) : null;
+
+        if ($this->removeGeneratedDate($html) == $this->removeGeneratedDate($prevHtml)) {
+            // the chapter is the same as the currently saved version, no change
+            return false;
+        }
+
+        echo "$number ";
+
+        if (! $blog) {
+            // this is the verification mode, no publishing
+            return true;
+        }
+
+        // removes line breaks because Blogger replaces them with <br> for some reason which screws up the display
+        // although messages are set to use HTML as it is and to use <br> for line feeds
+        $content = str_replace("\n", ' ', $html);
+        $blog->patchPost($url, $frenchChapter['title'], $content);
+        $this->writeFile($file, $html);
+
+        return true;
+    }
+
+    /**
+     *
+     * @param array $htmls
+     * @param array $frenchChapters
+     * @param Blog|null $blog
+     * @return string
+     */
+    public function saveMessages($htmls, $frenchChapters, $blog = null)
+    {
+        $publishedCount = 0;
+
+        foreach ($htmls as $number => $html) {
+            $publishedCount += $this->saveMessage($html, $frenchChapters[$number], $blog, $number);
+        }
+
+        if ($blog) {
+            if ($publishedCount == 0) {
+                $result = 'No chapter has changed, no chapter was published.';
+            } elseif ($publishedCount == 1) {
+                $result = "\n" . 'The chapter has changed and was published successfully.';
+            } else {
+                $result = "\n" . "The $publishedCount chapters have changed and were published successfully.";
+            }
+        } else {
+            if ($publishedCount == 0) {
+                $result = 'No chapter has changed, no chapter needs to be published.';
+            } elseif ($publishedCount == 1) {
+                $result = "\n" . 'The chapter has changed and need to be published.';
+            } else {
+                $result = "\n" . "The $publishedCount chapters have changed and will need to be published.";
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Saves the HTML content of an chapter into a temporary file.
+     *
+     * The chapter is saved in messages/temp.html that is used for checking changes before commiting them to the blog.
+     *
+     * @param string $html   The HTML content of the chapter
+     * @param int    $number The chapter number
+     *
+     * @return string The result of the action to be displayed to the output
+     */
+    public function saveTempMessage($html, $number)
+    {
+        $temp     = 'messages/temp.html';
+        $file     = __DIR__ . "/../$temp";
+        $prevHtml = file_exists($file) ? $this->readFile($file) : null;
+
+        if ($this->removeGeneratedDate($html) == $this->removeGeneratedDate($prevHtml)) {
+            $result = "The chapter is already up to date in $temp.";
+        } else {
+            $this->writeFile(__DIR__ . "/../$temp", $html);
+            $result = "The chapter was saved successfully in $temp.";
+        }
+
+        return $result;
+    }
+
+    /**
+     * Writes into a file.
+     *
+     * @param string $file    The file name
+     * @param string $content The file content
+     *
+     * @throws Exception
+     */
+    public function writeFile($file, $content)
+    {
+        if (! @file_put_contents($file, $content)) {
+            throw new Exception("cannot write file: $file");
+        }
     }
 }

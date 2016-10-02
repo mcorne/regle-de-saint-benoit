@@ -7,7 +7,7 @@
  * @author    Michel Corne <mcorne@yahoo.com>
  * @copyright 2014 Michel Corne
  * @license   http://www.opensource.org/licenses/gpl-3.0.html GNU GPL v3
- * @link      http://regle-de-saint-benoit.blogspot.fr/
+ * @link      https://regle-de-saint-benoit.blogspot.fr/
  */
 
 return array(
